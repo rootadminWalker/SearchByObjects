@@ -219,7 +219,7 @@ class YOLOPreprocessWithTarget(Outputs):
 
         for _class in set_classes:
             count = self.exist_classes.count(_class)
-            if _class is self.target:
+            if _class == self.target:
                 self.targetTotal += count
 
             self.all_classes.update({_class: count})

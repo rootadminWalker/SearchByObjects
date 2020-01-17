@@ -45,7 +45,7 @@ while True:
 
         frame = yoloIMG(frame).rollback()
 
-        duration = video.get(cv.CAP_PROP_POS_MSEC) / 1000
+        duration = setting.get_current_SEC(video)
         setting.format_to_HMS(duration)
         duration = setting.duration
 

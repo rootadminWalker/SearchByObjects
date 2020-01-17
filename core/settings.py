@@ -72,8 +72,10 @@ class Settings:
         """
         Get the current duration of the video
 
-        :return:
+        :param: To update the self.video
+        :return: current duration of the video
         """
+        # self.video = video
         return self.video.get(cv.CAP_PROP_POS_MSEC) / 1000
 
     def get_frames_count(self) -> int:

@@ -6,7 +6,7 @@ Search video by an image and objects exist in video
 - [x] Record objects at a specific duration
 - [x] Format seconds to H:M:S
 - [x] Predicted video more faster
-- [ ] Detect and sort by most frequent result
+- [x] Detect and sort by most frequent result
 - [x] Execute specific programs when detected specific types of objects
 - [x] Using OOP to develop
 - [x] Add comments for code
