@@ -40,7 +40,7 @@ class basePaths:
         """
 
         # Get base for this file
-        self.base = os.path.join(os.path.dirname(__name__))
+        self.base = os.path.dirname(os.path.dirname(__name__))
         self.path = path
 
     def joinBase(self) -> str:

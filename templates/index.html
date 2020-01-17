@@ -11,17 +11,18 @@
         <button id="file-dialog-trigger" class="dialog-triggers" onclick="select_video(event)">Open a file</button>
         <button id="folder-dialog-trigger" class="dialog-triggers" onclick="select_folder(event)">Upload a folder</button>
 
-        <video width="400" controls>
-            <source src="{{ url_for('static', filename='audios/test.mp4') }}" type="video/mp4">
+        <video id="viewVideo" width="400" controls>
+            <source src="{{ url_for('static', filename='videos/test.mp4') }}" type="video/mp4">
         </video>
 
-        <select name="select-label" id="select-search-item"></select>
+        <label for="select-search-item"></label><select name="select-label" id="select-search-item"></select>
     </div>
     <script type="text/javascript">
         function select_video(event) {
             $("#file-dialog-trigger").on("click", function () {
                 $('#file-dialog').trigger("click");
             });
+            video = document.getElementById('viewVideo');
         }
         function select_folder(event) {
             $("#folder-dialog-trigger").on("click", function () {
@@ -31,7 +32,7 @@
 
         {# Declare variables #}
         const labelSelector = document.getElementById('select-search-item');
-        let labels, option;
+        let labels, option, video;
 
         $.ajax({
             url: '/get_classes',
@@ -39,11 +40,11 @@
             data: {}
         }).done(function (response) {
             labels = response.classes;
-            for (let i=0; i<labels.length, i++) {
+            for (let i=0; i<labels.length; i++) {
                 option = document.createElement('option');
                 option.classList.add('label-options');
                 option.text = labels[i];
-                option.value = labels[i]
+                option.value = labels[i];
                 labelSelector.add(option)
             }
         });

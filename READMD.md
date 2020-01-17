@@ -10,6 +10,8 @@ Search video by an image and objects exist in video
 - [x] Execute specific programs when detected specific types of objects
 - [x] Using OOP to develop
 - [x] Add comments for code
+- [ ] Video upload processing
+- [ ] Folder upload processing
 ##### Frontend
 - [ ] **GUI for user-friendly**
 - [x] Create ico.html

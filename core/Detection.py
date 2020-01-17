@@ -115,7 +115,7 @@ class YOLOPreprocess(Outputs):
         self.boxes = {}
         self.box_count = outputs[1]
 
-    def process_outputs(self):
+    def process_outputs(self) -> dict:
         set_classes = set(self.exist_classes)
 
         if self.duration not in self.boxes:
@@ -205,15 +205,15 @@ class YOLOPreprocessWithTarget(Outputs):
 
         self.targetTotal = 0
 
-    def process_outputs(self) -> (dict, int):
+    def process_outputs(self) -> dict:
         """
-        :return: boxes dict and your target total exist times
+        :return: boxes dict
         """
 
         set_classes = set(self.exist_classes)
 
         if self.duration not in self.boxes:
-            self.boxes[self.duration] = {"box_count": 0, "classes": {}}
+            self.boxes[self.duration] = {"box_count": 0, "classes": {}, "target": 0}
 
         self.boxes[self.duration]['box_count'] += self.box_count
 
@@ -225,4 +225,5 @@ class YOLOPreprocessWithTarget(Outputs):
             self.all_classes.update({_class: count})
 
         self.boxes[self.duration]['classes'].update(self.all_classes)
-        return self.boxes, self.targetTotal
+        self.boxes[self.duration]['target'] += self.targetTotal
+        return self.boxes

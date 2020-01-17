@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 /models/
 /static/audios/
+/static/videos/
