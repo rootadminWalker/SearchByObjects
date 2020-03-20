@@ -132,4 +132,5 @@ dmypy.json
 /static/videos/
 /static/libs/
 /static/uploads/
-/static/results/
+/static/results
+/static/resultIMG
