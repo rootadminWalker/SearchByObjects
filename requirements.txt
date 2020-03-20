@@ -1,3 +1,5 @@
+werkzeug
+requests
 tensorflow==1.14.0
 keras==2.1.5
 opencv-python>=4.1.1.26

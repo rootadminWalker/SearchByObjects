@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'ico.html' %}
+</head>
+<body style="background: white none;">
+<div class="row">
+    <div class="col s6 valign-wrapper" style="height: 100vh; background-color: #292e37">
+        <div style="width: 100vh">
+            <div class="center-align">
+                <h3 class="left-result">Your target total exists:</h3>
+                <h1 class="left-result">{{ count }}</h1>
+
+                <button id="view-trigger" class="btn btn-floating waves-effect waves-light blue darken-3">
+                    <i id="icon" class="material-icons">arrow_drop_down</i>
+                </button>
+                <div id="view" style="display: none; padding: 20px 0">
+                    <div class="video-container">
+                        <video width="640" height="360" controls>
+                            <source src="{{ url_for('static', filename='uploads/' + filename) }}">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s6 valign-wrapper" style="height: 100vh;">
+        <div style="width: 100vh">
+            <div class="center-align">
+                <h3 class="right-result">View here for pecific durations images</h3>
+                <div class="input-field">
+                    <select name="watch-boxes" id="boxes-result">
+                        <option selected>Select a duration</option>
+                        {% for duration in durations.keys() %}
+                            <option>{{ duration }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="images">
+                    {% for duration, id in ids.items() %}
+                        <div class="col s12 center-align">
+                            <img src="{{ url_for('static', filename='resultIMGS/' + filename + '/' + duration + '.jpg') }}"
+                                 id="{{ id }}" style="display: none" class="result-imgs">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        let clicked = false;
+        $('#view-trigger').click(function () {
+            if (clicked) {
+                $('#view').css('display', 'none');
+                $('#icon').html('arrow_drop_down');
+                clicked = false;
+            } else {
+                $('#view').css('display', 'block');
+                $('#icon').html('arrow_drop_up');
+                clicked = true;
+            }
+        });
+        let $userSelect = $('#boxes-result');
+        $userSelect.formSelect();
+        $userSelect.change(function () {
+            let $selected = $(this).children('option:selected').val();
+            $('.result-imgs').each(function () {
+                $(this).css('display', 'none');
+            });
+            $selected = $selected.replace(/:/gi, '-');
+            console.log($selected);
+            $('#' + $selected).css('display', 'block');
+        });
+    });
+</script>
+</body>
+</html>

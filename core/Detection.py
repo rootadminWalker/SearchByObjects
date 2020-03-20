@@ -64,7 +64,7 @@ class yoloIMG(Img):
 
 
 class YOLODetect(Detection):
-    def __init__(self, model_path, anchors_path: str, classes_path):
+    def __init__(self, model_path: str, anchors_path: str, classes_path: str):
         """
         Inherited by the Detection class, This will
         detect your image using YOLO
@@ -94,7 +94,7 @@ class YOLODetect(Detection):
                  predicted_classes: All predicted classes
         """
 
-        self.frame, self.box_count, self.predicted_classes = self.model.detect_image(frame)
+        self.frame, self.box_count, _, self.predicted_classes = self.model.detect_image(frame)
         return self.frame, self.box_count, self.predicted_classes
 
 
@@ -207,7 +207,7 @@ class YOLOPreprocessWithTarget(Outputs):
 
     def process_outputs(self) -> dict:
         """
-        :return: boxes dict
+        :return: A boxes dict, with format: {duration: {target: exists times}}
         """
 
         set_classes = set(self.exist_classes)

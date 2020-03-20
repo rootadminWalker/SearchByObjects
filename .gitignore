@@ -130,3 +130,6 @@ dmypy.json
 /models/
 /static/audios/
 /static/videos/
+/static/libs/
+/static/uploads/
+/static/results/

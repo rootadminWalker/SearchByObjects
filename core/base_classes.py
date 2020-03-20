@@ -156,8 +156,8 @@ class Labels(ABC):
 
 # Process to output data from model when operating post operation on websites
 class Data(ABC):
-    def __init__(self, data):
-        self.data = data
+    def __init__(self):
+        pass
 
     @abstractmethod
     def action(self):

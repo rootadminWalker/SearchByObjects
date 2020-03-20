@@ -86,6 +86,9 @@ class Settings:
         """
         return self.video.get(cv.CAP_PROP_FRAME_COUNT)
 
+    def current_frame(self):
+        return self.get_fps() * self.get_current_SEC()
+
     def format_to_HMS(self, duration: float):
         """
         Format total duration into H:M:S format

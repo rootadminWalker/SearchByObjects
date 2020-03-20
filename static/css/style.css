@@ -1,7 +1,63 @@
-html {
+* {
+    box-sizing: border-box;
+}
+
+body {
     margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/static/bgs/20200120_150626.jpg');
+    background-size: cover;
 }
 
 .selectors {
     display: none;
+}
+
+#triangle-1 {
+    width: 0;
+    height: 0;
+    border-right: 100vw solid transparent;
+    float: left;
+}
+
+#triangle-2 {
+    width: 0;
+    height: 0;
+    border-left: 100vw solid transparent;
+}
+
+#triangle-holder {
+    position: relative;
+    bottom: 0;
+    color: red;
+}
+
+.main {
+    text-align: center;
+    width: 100%;
+}
+
+#main-page h1 {
+    color: white;
+    font-family: Roboto, 'sans-serif' !important;
+    font-weight: lighter;
+}
+
+#main-page p {
+    font-size: 20px;
+    color: white;
+    font-family: Roboto, 'sans-serif' !important;
+    font-weight: lighter;
+}
+
+.left-result {
+    color: white;
+    font-family: Roboto, 'sans-serif' !important;
+    font-weight: lighter;
+}
+
+.right-result {
+    color: #0061f2;
+    font-family: Roboto, 'sans-serif' !important;
+    font-weight: inherit;
 }
